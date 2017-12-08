@@ -31,7 +31,35 @@ Successful results only come from a `postcode` with the value `3000` and the
 `partNumber` being a single number between one and ten, or a comma delimited
 list such as `1,5,9`.
 
+Feel free to test the endpoint any way you like, however my personal preference is [Postman](https://getpostman.com)
+
 ## How do I complete the test?
 
 Provided in this repository is a simple Express server we've created for the
 purpose of this test.
+
+Your task is to submit a PR cleaning up the various code smells and anti-patterns we've left around the place. Dig deep, extra points for finding stuff we didn't identify ourselves first.
+
+With an emphasis on:
+- Usage of ES6/7 where possible
+- Removing excessive mutability
+- Unused or unecessary variables
+- Edge case bugs that are unhandled
+- Service architecture, folder structure and circular patterns
+
+It would also be great to have a few automated tests written, but feel free not to go overboard there.
+
+Once the PR is submitted, we will review internally and then schedule a short video chat to run through a code review like the standard PR process.
+
+## FAQ/Hints
+
+1. Will I be marked down for using tabs vs. spaces, single vs. double quotes, certain code styling that doesn't affect functionality or "best practice"?
+
+    Not at all. But you might need to change your code style here and there to fit the team when you come aboard.
+
+2. This code isn't great, is this stuff I'll be working on in the job?
+
+    This repo was created in order to see our candidates' eye for detail and how they apply their craft in a semi-realistic environment. There is a fair amount of anti-patterns/code smells going on for the purpose of this test. Not to say our current repositories are complete perfection either (What code is?).
+
+
+Good luck, looking forward to chatting soon.
