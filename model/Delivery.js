@@ -20,7 +20,6 @@ var Delivery = {};
 Delivery.getByWeight = function(postcode, wt, callback) {
   const cost = deliveryCost.find({ weight: { $gt: wt } }, postcode)[0];
 
-  console.log(cost);
   return callback(null, deliveryCost.find({})[0]);
 };
 

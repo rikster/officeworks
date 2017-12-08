@@ -24,7 +24,6 @@ for (var i = 0; i < 10; i++) {
 var Availability = {};
 
 Availability.getByPostcode = function(postcode, itemCode, callback) {
-  //console.log(availability.data);
   var foundItems = [];
   itemCode.forEach(function(item) {
     var foundItem = availability.find({ id: item, postcode })[0];
