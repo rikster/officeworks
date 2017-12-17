@@ -57,20 +57,22 @@ Once the PR is submitted, we will review internally and then schedule a short vi
 
 ## FAQ/Hints
 
-1. Will I be marked down for using tabs vs. spaces, single vs. double quotes, certain code styling that doesn't affect functionality or "best practice"?
+### Will I be marked down for using tabs vs. spaces, single vs. double quotes, certain code styling that doesn't affect functionality or "best practice"?
 
-   Not at all. But you might need to change your code style here and there to fit the team when you come aboard.
+Not at all. But you might need to change your code style here and there to fit the team when you come aboard.
 
-2. This code isn't great, is this stuff I'll be working on in the job?
+### This code isn't great, is this stuff I'll be working on in the job?
 
-   This repo was created in order to see our candidates' eye for detail and how they apply their craft in a semi-realistic environment. There is a fair amount of anti-patterns/code smells going on for the purpose of this test. Not to say our current repositories are complete perfection either (What code is?).
+This repo was created in order to see our candidates' eye for detail and how they apply their craft in a semi-realistic environment. There is a fair amount of anti-patterns/code smells going on for the purpose of this test. Not to say our current repositories are complete perfection either (What code is?).
 
-3. How do you handle async at Officeworks?
+### How do you handle async at Officeworks?
 
-   Mostly async/await with some promises scattered around, callbacks are avoided
+Mostly async/await with some promises scattered around, callbacks are avoided
 
-4. Should I be following the existing patterns set in this repo?
+### Should I be following the existing patterns set in this repo?
 
-   Not really, the idea is to improve the code to reduce bugs, side-effects and overall reliability and performance. Feel free to slice and dice where you see fit. The repo is supposed to have a fair bit of cruft, so don't worry about offending us.
+Not really, the idea is to improve the code to reduce bugs, side-effects and overall reliability and performance. Feel free to slice and dice where you see fit. The repo is supposed to have a fair bit of cruft, so don't worry about offending us.
+
+---
 
 Good luck, looking forward to chatting soon.
