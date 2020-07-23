@@ -16,7 +16,7 @@ Ideally we'd like our candidates to spend 2 hours on this task. Anything you run
 
 ## Getting started
 
-This service has been built using Node 8.17.0, however it should work at least on Node 6+.
+This service has been built using Node 8.17.0, however it should work at least on Node 10.
 
 Let's start the server
 
@@ -26,7 +26,7 @@ This will install the requisite dependencies and start the server on port 3000.
 
 There's only the single endpoint created for this service accessible at:
 
-`GET http://localhost:3000/api/delivery/<postcode>?partNumber=<comma delimted ID>`
+`GET http://localhost:3000/api/delivery/<postcode>?partNumber=<comma delimited ID>`
 
 Successful results only come from a `postcode` with the value `3000` and the
 `partNumber` being a single number between one and ten, or a comma delimited
@@ -48,8 +48,10 @@ With an emphasis on:
 * Unused or unecessary variables
 * Edge case bugs that are unhandled
 * Service architecture and circular patterns
+* Add notes for things you don't get to in a file or in the PR
 
-When renaming or moving files please consider the impact on readability of the diff in the resulting pull request.
+
+If renaming or moving files please consider the impact on readability of the diff in the resulting pull request.
 
 It would also be great to have a few automated unit/integration tests written, but feel free not to go overboard there.
 
