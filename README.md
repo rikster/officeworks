@@ -12,13 +12,11 @@ Feedback on this section of the interview process is naturally very welcome,
 we'd appreciate the chance to improve for all future candidates who will be
 taking this test.
 
-Ideally we'd like our candidates to spend 1 - 2 hours on this task. Anything you run out of time for, leave some comments in the code and raise them with us in the walkthrough.
+Ideally we'd like our candidates to spend 2 hours on this task. Anything you run out of time for, leave some comments in the code and raise them with us in the walkthrough.
 
 ## Getting started
 
-So that you're able to push to something in git, best to start by forking this repository first.
-
-This service has been built using Node 8.9.1, however it should work at least on Node 6+.
+This service has been built using Node 8.17.0, however it should work at least on Node 10.
 
 Let's start the server
 
@@ -28,7 +26,7 @@ This will install the requisite dependencies and start the server on port 3000.
 
 There's only the single endpoint created for this service accessible at:
 
-`GET localhost:3000/api/delivery/<postcode>?partNumber=<comma delimted ID>`
+`GET http://localhost:3000/api/delivery/<postcode>?partNumber=<comma delimited ID>`
 
 Successful results only come from a `postcode` with the value `3000` and the
 `partNumber` being a single number between one and ten, or a comma delimited
@@ -49,11 +47,15 @@ With an emphasis on:
 * Removing excessive mutability
 * Unused or unecessary variables
 * Edge case bugs that are unhandled
-* Service architecture, folder structure and circular patterns
+* Service architecture and circular patterns
+* Add notes for things you don't get to in a file or in the PR
+
+
+If renaming or moving files please consider the impact on readability of the diff in the resulting pull request.
 
 It would also be great to have a few automated unit/integration tests written, but feel free not to go overboard there.
 
-Once the PR is submitted, we will review internally and then schedule a short video chat to run through a code review like the standard PR process.
+Once the PR is submitted, we will review internally and then run through a code review like the standard PR process as part of your interview.
 
 ## FAQ/Hints
 
