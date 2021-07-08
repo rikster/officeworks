@@ -1,10 +1,10 @@
 "use strict";
 
-const bodyParser = require("body-parser");
-const path = require("path");
-const app = require("express")();
+const express = require("express");
 const winston = require("express-winston");
 const logger = require("./services/logger");
+
+const app = express();
 
 process.on("uncaughtException", function(error) {
   console.dir(error);
@@ -13,7 +13,8 @@ process.on("uncaughtException", function(error) {
   if (error.stack) console.log(error.stack);
 });
 
-app.use(bodyParser.json());
+// Init Middleware, so we can accept body data
+app.use(express.json({ extended: false }));
 
 app.use(
   winston.logger({
@@ -22,15 +23,12 @@ app.use(
     msg: "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}",
     expressFormat: true,
     colorize: true,
-    ignoreRoute: function(req, res) {
-      return false;
-    }
   })
 );
 
+//Define Routes
 app.use("/api/delivery", require(`./routes/delivery`));
 
-var port = process.env.PORT || "3000";
-app.listen(port);
+const PORT = process.env.PORT || "3000";
 
-console.log("Server listening on port: " + port);
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
