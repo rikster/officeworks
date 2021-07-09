@@ -1,3 +1,12 @@
+// A new loki db is being built here for weight pricing?
+// creates 4 new objects altering the weight & cost, uses same postcode (as is everywhere)
+// then getByWeight function trys to find by weight and post, which doesnt work, allocates it to cost, does nothing with cost
+// then returns deliveryCost.find({})[0], sets err to null
+
+//overly complex twisted way to generate and applying weight pricing,
+// and should nt be here, rather in the serivce oor route logic
+
+
 "use strict";
 
 var faker = require("faker");

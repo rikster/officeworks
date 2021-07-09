@@ -1,3 +1,6 @@
+// Pretty weak and pointless middleware,
+// just pretty console logs
+
 "use strict";
 var winston = require("winston");
 winston.addColors({

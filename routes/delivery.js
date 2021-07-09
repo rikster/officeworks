@@ -1,3 +1,11 @@
+// Yuck
+// confusing route params
+// some partnumber error checking, none for postcode
+// kick off a availabilityService.getByPostcode,
+// which leads down a rabbit hole of callbacks all over the place,
+// some in the serives, some in models, a mess, spagetti
+// will rewrite
+
 "use strict";
 
 const router = require("express").Router(),

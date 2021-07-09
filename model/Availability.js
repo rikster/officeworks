@@ -1,3 +1,7 @@
+// Using Loki as the db, and faker for a list of 10 products
+// Models are normally POCOs
+// This is  more like a data layer for building an in memory db.
+
 "use strict";
 
 var faker = require("faker");
