@@ -89,9 +89,9 @@ router.post('/', [
 // @access    Private
 // @body:
 // {
-//     "postcode": 3000,
-//     itemids: [1,2,3]
-// }
+//      "postcode": 3000,
+//      "itemids": ["60e95a19a4b8af30b8e325c3", "60e95af6d64ec75b4831734f", "60e9abdb08bf3a349c29b9aa"]
+//  }
 // (note) could use query params, object is more scalable
 router.post('/getItemsDeliveryCostByPostcodeAndID', [
     check('postcode', 'Postcode is required').not().isEmpty(),
@@ -121,24 +121,25 @@ router.post('/getItemsDeliveryCostByPostcodeAndID', [
         // iterate through items and update costs
         let results = [];
         for (let i = 0; i < itemsById.length; i++) {
-
             for (let d = deliveriesByPostcode.length - 1; d > 0; d--) {
                 if (itemsById[i].postcode === deliveriesByPostcode[d].postcode) {
-                    const itemWeight = itemsById[i].weight
-                    const deliveryWeight = deliveriesByPostcode[d].weight;
-                    if (itemWeight <= deliveryWeight) {
-                        itemsById[i].cost = deliveryWeight[d].cost;
+                    if (itemsById[i].weight <= deliveriesByPostcode[d].weight) {
+                        itemsById[i].cost = deliveriesByPostcode[d].cost;
                     }
                 }
             }
-            // if (!itemsById[i].cost)
-            //     itemsById[i].cost = 'cost unavailable';
-
+            if (itemsById[i].weight > deliveriesByPostcode[deliveriesByPostcode.length - 1].weight)
+                 itemsById[i].cost = deliveriesByPostcode[deliveriesByPostcode.length - 1].cost;
             results.push(itemsById[i]);
         }
 
+        let totalDeliveryCost = null;
+        results.forEach((item, index) =>{
+                totalDeliveryCost += item.cost
+            }
+        );
+        results.push({"totalDeliveryCost": totalDeliveryCost});
 
-        //res.json({deliveriesByPostcode, itemsById});
         res.json(results);
 
     } catch (err) {
