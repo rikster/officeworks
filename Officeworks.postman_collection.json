@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "8ad710a2-c2de-4754-bbb4-ac41acb8548a",
+		"name": "Officeworks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all items/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add an item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Handmade Granite Table\",\r\n    \"description\": \"Switchable composite architecture\",\r\n    \"weight\": 41,\r\n    \"available\": false,\r\n    \"postcode\": \"3000\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/items/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"items",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get an item by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/items/availableitems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"items",
+						"availableitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all delivery costs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/deliveries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"deliveries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a delivery cost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"weight\": 10,\r\n    \"cost\": 2,\r\n    \"postcode\": \"3000\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5090/api/deliveries/delivery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5090",
+					"path": [
+						"api",
+						"deliveries",
+						"delivery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item/s by a postcode and list of Id/s, add cost and total cost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"postcode\": 3000,\r\n     \"itemids\": [1,2,3]\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/items/getItemsDeliveryCostByPostcodeAndID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"items",
+						"getItemsDeliveryCostByPostcodeAndID"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
