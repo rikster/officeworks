@@ -51,15 +51,16 @@ router.post('/', [
     check('available', 'Available is required').not().isEmpty(),
     check('available', 'Available must be true or false').isBoolean(),
     check('postcode', 'Postcode is required').not().isEmpty(),
-    check('postcode', 'Must be a valid Australian postcode').isPostalCode("AU")
-    //check('cost', 'Cost must be a number').isNumeric()
+    check('postcode', 'Must be a valid Australian postcode').isPostalCode("AU"),
+    check('cost', 'Cost is required').not().isEmpty(),
+    check('cost', 'Cost must be a decimal').isDecimal()
 ], async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {name, description, weight, available, postcode} = req.body;
+    const {name, description, weight, available, postcode, cost} = req.body;
 
     try {
         const newItem = new Item({
@@ -67,7 +68,8 @@ router.post('/', [
             description,
             weight,
             available,
-            postcode
+            postcode,
+            cost
         });
 
         // alternative syntax
@@ -82,7 +84,70 @@ router.post('/', [
     }
 });
 
+// @route     POST api/items/getItemsDeliveryCostByPostcodeAndID
+// @desc      get item/s by id and postcode with calculated delivery cost
+// @access    Private
+// @body:
+// {
+//     "postcode": 3000,
+//     itemids: [1,2,3]
+// }
+// (note) could use query params, object is more scalable
+router.post('/getItemsDeliveryCostByPostcodeAndID', [
+    check('postcode', 'Postcode is required').not().isEmpty(),
+    check('postcode', 'Must be a valid Australian postcode').isPostalCode("AU"),
+    check('itemids', 'itemids is required').not().isEmpty(),
+    check('itemids', 'itemdds must be array').isArray(),
+    check('itemids').custom((items) => {
+        if (!items.every(i => (typeof i === "string"))) throw new Error('Array does not contain Strings'); // check that contains strings
+        return true;
+    })
+], async (req, res) => {
 
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({errors: errors.array()});
+    }
+
+    try {
+        const {postcode, itemids} = req.body;
+
+        // get delivery costs by postcode
+        const deliveriesByPostcode = await Delivery.find({postcode: postcode});
+
+        // get items by ids
+        const itemsById = await Item.find({'_id': {$in: itemids}});
+
+        // iterate through items and update costs
+        let results = [];
+        for (let i = 0; i < itemsById.length; i++) {
+
+            for (let d = deliveriesByPostcode.length - 1; d > 0; d--) {
+                if (itemsById[i].postcode === deliveriesByPostcode[d].postcode) {
+                    const itemWeight = itemsById[i].weight
+                    const deliveryWeight = deliveriesByPostcode[d].weight;
+                    if (itemWeight <= deliveryWeight) {
+                        itemsById[i].cost = deliveryWeight[d].cost;
+                    }
+                }
+            }
+            // if (!itemsById[i].cost)
+            //     itemsById[i].cost = 'cost unavailable';
+
+            results.push(itemsById[i]);
+        }
+
+
+        //res.json({deliveriesByPostcode, itemsById});
+        res.json(results);
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+
+})
+;
 
 
 module.exports = router;
