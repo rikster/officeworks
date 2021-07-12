@@ -1,3 +1,28 @@
+# Developers Notes
+
+## Assumptions
+- There are 10 items/products in the db
+- Weight and Cost
+  - A single items delivery cost is calculated using its postcode and weight
+  - Total Cost of all items is calculated and appended to the end of the db  
+
+## Response and Justification
+- Will use faker in separate scripts, keeping it out of core code
+  - this can be imported into db
+  - or you can use API to POST a new item to db
+- Replace loki w/ db.json or MongoDb to make data persistent
+  - therefore, using models correctly w/ schemas
+  - although loki (or redis, sql-lite, etc ) could be used for performance usage
+- will replace services dir with routes dir and put biz logic there in separate files
+- replace app.js w/ server.js as an entry point for the API
+  - setup persistance (db etc), middleware and define routes
+- validation is done via Express Validator rather than if thens
+- errors are handled in try catch statements blocks
+- testing
+- postman collection
+- swagger
+
+
 # Officeworks Candidate Test
 
 ## Welcome
