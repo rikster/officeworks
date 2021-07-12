@@ -1,0 +1,118 @@
+{
+  "Items": [
+    {
+      "id": "1",
+      "name": "Small Rubber Pizza",
+      "description": "Seamless grid-enabled approach",
+      "weight": 11,
+      "available": true,
+      "postcode": "3000"
+    },
+    {
+      "id": "0",
+      "name": "Handmade Cotton Keyboard",
+      "description": "Assimilated tertiary architecture",
+      "weight": 43,
+      "available": true,
+      "postcode": "3000"
+    },
+    {
+      "id": "1",
+      "name": "Licensed Granite Hat",
+      "description": "Cross-group bottom-line methodology",
+      "weight": 15,
+      "available": false,
+      "postcode": "3000"
+    },
+    {
+      "id": "2",
+      "name": "Fantastic Plastic Shirt",
+      "description": "Switchable methodical leverage",
+      "weight": 44,
+      "available": false,
+      "postcode": "3000"
+    },
+    {
+      "id": "3",
+      "name": "Small Rubber Pizza",
+      "description": "Seamless grid-enabled approach",
+      "weight": 11,
+      "available": true,
+      "postcode": "3000"
+    },
+    {
+      "id": "4",
+      "name": "Awesome Steel Cheese",
+      "description": "Self-enabling 6th generation attitude",
+      "weight": 25,
+      "available": true,
+      "postcode": "3000"
+    },
+    {
+      "id": "5",
+      "name": "Small Cotton Pants",
+      "description": "Ameliorated analyzing array",
+      "weight": 32,
+      "available": false,
+      "postcode": "3000"
+    },
+    {
+      "id": "6",
+      "name": "Awesome Rubber Hat",
+      "description": "Persistent attitude-oriented circuit",
+      "weight": 49,
+      "available": false,
+      "postcode": "3000"
+    },
+    {
+      "id": "7",
+      "name": "Handmade Granite Table",
+      "description": "Switchable composite architecture",
+      "weight": 41,
+      "available": false,
+      "postcode": "3000"
+    },
+    {
+      "id": "8",
+      "name": "Rustic Rubber Mouse",
+      "description": "Extended real-time support",
+      "weight": 46,
+      "available": false,
+      "postcode": "3000"
+    },
+    {
+      "id": "9",
+      "name": "Ergonomic Frozen Mouse",
+      "description": "Vision-oriented hybrid Graphical User Interface",
+      "weight": 42,
+      "available": false,
+      "postcode": "3000"
+    }
+  ],
+  "Deliveries": [
+    {
+      "weight": 10,
+      "cost": 2,
+      "postcode": "3000"
+    },
+    {
+      "weight": 20,
+      "cost": 4,
+      "postcode": "3000"
+    },
+    {
+      "weight": 30,
+      "cost": 6,
+      "postcode": "3000"
+    },
+    {
+      "weight": 40,
+      "cost": 8,
+      "postcode": "3000"
+    }
+  ],
+  "TotalDeliveryCost": {
+    "amount": "2"
+  }
+}
+
