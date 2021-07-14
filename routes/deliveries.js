@@ -9,7 +9,7 @@ const Delivery = require('../models/Delivery');
 // @access    Public
 router.get('/', async (req, res) => {
     try {
-        const deliveries = await Delivery.find({});
+        const deliveries = await Delivery.find({}).sort({weight: '1'});
         res.json(deliveries);
     } catch (err) {
         console.error(err.message);

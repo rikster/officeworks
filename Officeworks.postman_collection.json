@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8ad710a2-c2de-4754-bbb4-ac41acb8548a",
+		"_postman_id": "102eeaa9-204f-4c03-a95d-652deca2da75",
 		"name": "Officeworks",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,12 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5050/api/items",
+					"raw": "http://localhost:5090/api/items",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5050",
+					"port": "5090",
 					"path": [
 						"api",
 						"items"
@@ -38,15 +38,15 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Handmade Granite Table\",\r\n    \"description\": \"Switchable composite architecture\",\r\n    \"weight\": 41,\r\n    \"available\": false,\r\n    \"postcode\": \"3000\"\r\n}"
+					"raw": "{\r\n    \"name\": \"Handmade Granite Table 3\",\r\n    \"description\": \"Switchable composite architecture\",\r\n    \"weight\": 45,\r\n    \"available\": true,\r\n    \"postcode\": \"3000\",\r\n    \"cost\": 45\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5050/api/items/",
+					"raw": "http://localhost:5090/api/items/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5050",
+					"port": "5090",
 					"path": [
 						"api",
 						"items",
@@ -62,16 +62,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5050/api/items/availableitems",
+					"raw": "http://localhost:5090/api/items/getItemById/60e95a19a4b8af30b8e325c3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5050",
+					"port": "5090",
 					"path": [
 						"api",
 						"items",
-						"availableitems"
+						"getItemById",
+						"60e95a19a4b8af30b8e325c3"
 					]
 				}
 			},
@@ -83,12 +84,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5050/api/deliveries",
+					"raw": "http://localhost:5090/api/deliveries",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5050",
+					"port": "5090",
 					"path": [
 						"api",
 						"deliveries"
@@ -110,7 +111,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"weight\": 10,\r\n    \"cost\": 2,\r\n    \"postcode\": \"3000\"\r\n}"
+					"raw": "{\r\n    \"weight\": 70,\r\n    \"cost\": 20,\r\n    \"postcode\": \"3000\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5090/api/deliveries/delivery",
@@ -141,15 +142,15 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"postcode\": 3000,\r\n     \"itemids\": [1,2,3]\r\n }"
+					"raw": "{\r\n     \"postcode\": 3000,\r\n     \"itemids\": [\"60e95a19a4b8af30b8e325c3\", \"60e95af6d64ec75b4831734f\", \"60e9abdb08bf3a349c29b9aa\"]\r\n }"
 				},
 				"url": {
-					"raw": "http://localhost:5050/api/items/getItemsDeliveryCostByPostcodeAndID",
+					"raw": "http://localhost:5090/api/items/getItemsDeliveryCostByPostcodeAndID",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5050",
+					"port": "5090",
 					"path": [
 						"api",
 						"items",

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {check, validationResult} = require('express-validator/check');
+const {check, validationResult} = require('express-validator');
 
 const Item = require('../models/Item');
 const Delivery = require('../models/Delivery');
@@ -113,7 +113,7 @@ router.post('/getItemsDeliveryCostByPostcodeAndID', [
         const {postcode, itemids} = req.body;
 
         // get delivery costs by postcode
-        const deliveriesByPostcode = await Delivery.find({postcode: postcode});
+        const deliveriesByPostcode = await Delivery.find({postcode: postcode}).sort({weight: '1'});
 
         // get items by ids
         const itemsById = await Item.find({'_id': {$in: itemids}});
